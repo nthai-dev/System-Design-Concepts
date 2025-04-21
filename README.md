@@ -22,6 +22,7 @@ System Design was HARD until I Learned these 30 Concepts
 Almost every web application that you use is built on this simple yet powerful concept called client-server architecture.
 
 ![client-server]()
+
 - The client requests to store, retrieve, or modify data.
 - The server receives the request, processes it, performs the necessary operations, and sends back a response.
 This sounds simple, but there’s a big question: 
@@ -33,7 +34,9 @@ TL;DR:
 
 ## IP Address
 On the internet, computers identify each other using IP addresses, which work like phone numbers.
+
 ![ip-address]()
+
 Every publicly deployed server has a unique IP address. When a client wants to interact with a service, it must send requests to the correct IP address.
 
 But there’s a problem:
