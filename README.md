@@ -6,7 +6,7 @@ System Design was HARD until I Learned these 30 Concepts
 ## Table of Contents
 
 | [1. Client-Server Architecture]() | [11. SQL vs NoSQL]()         | [21. CAP Theorem]()    |
-|----------------------------------|-------------------------------|-------------------------|
+|:----------------------------------|:-------------------------------|:-------------------------|
 | [2. IP Address]()                | [12. Vertical Scaling]()      | [22. Blob Storage]()    |
 | [3. DNS]()                       | [13. Horizontal Scaling]()    | [23. CDN]()             |
 | [4. Proxy / Reverse Proxy]()     | [14. Load Balancers]()        | [24. WebSockets]()      |
@@ -24,11 +24,19 @@ Almost every web application that you use is built on this simple yet powerful c
 ![client-server]()
 - The client requests to store, retrieve, or modify data.
 - The server receives the request, processes it, performs the necessary operations, and sends back a response.
-> This sounds simple, but there’s a big question: 
-> How does the client even know where to find the server?
+This sounds simple, but there’s a big question: 
+How does the client even know where to find the server?
 
 TL;DR:
 > The client finds the server via DNS, config, or service discovery, and connects using an IP/port.
 
 
+## IP Address
+On the internet, computers identify each other using IP addresses, which work like phone numbers.
+![ip-address]()
+Every publicly deployed server has a unique IP address. When a client wants to interact with a service, it must send requests to the correct IP address.
 
+But there’s a problem:
+- When we visit a website, we don’t type its IP address—we just enter the website name.
+- We can’t expect users (or even systems) to memorize a string of random numbers for every service they connect to.
+- If we migrate our service to another server, its IP address may change, breaking all direct connections.
