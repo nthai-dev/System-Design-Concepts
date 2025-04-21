@@ -4,18 +4,7 @@
 System Design was HARD until I Learned these 30 Concepts
 
 ## Table of Contents
-|Foundational Networking|APIs & Data Management|Scalability & Advanced Systems|
-|:----------------------------------|:-------------------------------|:-------------------------|
-| [1. Client-Server Architecture]() | [11. SQL vs NoSQL]()         | [21. CAP Theorem]()    |
-| [2. IP Address]()                | [12. Vertical Scaling]()      | [22. Blob Storage]()    |
-| [3. DNS]()                       | [13. Horizontal Scaling]()    | [23. CDN]()             |
-| [4. Proxy / Reverse Proxy]()     | [14. Load Balancers]()        | [24. WebSockets]()      |
-| [5. Latency]()                   | [15. Database Indexing]()     | [25. Webhooks]()        |
-| [6. HTTP/HTTPS]()                | [16. Replication]()           | [26. Microservices]()   |
-| [7. APIs]()                      | [17. Sharding]()              | [27. Message Queues]()  |
-| [8. Rest API]()                  | [18. Vertical Partitioning]() | [28. Rate Limiting]()   |
-| [9. GraphQL]()                   | [19. Caching]()               | [29. API Gateways]()    |
-| [10. Databases]()                | [20. Denormalization]()       | [30. Idempotency]()     |
+![table_of_content](https://github.com/nthai-dev/System-Design-Concepts/blob/main/images/table_of_contents_image.png?raw=true)
 
 
 ## 🖥️ Client-Server Architecture
