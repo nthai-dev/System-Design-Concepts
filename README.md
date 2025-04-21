@@ -4,9 +4,9 @@
 System Design was HARD until I Learned these 30 Concepts
 
 ## Table of Contents
-
-| [1. Client-Server Architecture]() | [11. SQL vs NoSQL]()         | [21. CAP Theorem]()    |
+|Foundational Networking|APIs & Data Management|Scalability & Advanced Systems|
 |:----------------------------------|:-------------------------------|:-------------------------|
+| [1. Client-Server Architecture]() | [11. SQL vs NoSQL]()         | [21. CAP Theorem]()    |
 | [2. IP Address]()                | [12. Vertical Scaling]()      | [22. Blob Storage]()    |
 | [3. DNS]()                       | [13. Horizontal Scaling]()    | [23. CDN]()             |
 | [4. Proxy / Reverse Proxy]()     | [14. Load Balancers]()        | [24. WebSockets]()      |
