@@ -43,3 +43,29 @@ But there’s a problem:
 - When we visit a website, we don’t type its IP address—we just enter the website name.
 - We can’t expect users (or even systems) to memorize a string of random numbers for every service they connect to.
 - If we migrate our service to another server, its IP address may change, breaking all direct connections.
+
+## 3. DNS
+Instead of relying on hard-to-remember IP addresses, we use something much more human-friendly: domain names.
+
+But we need a way to map a domain name to its corresponding IP address.
+
+This is where DNS (or Domain Name System) comes in. It maps easy-to-remember domain names (like google.com) to their corresponding IP addresses.
+
+![dns]()
+
+## 4. Proxy/ Reverse Proxy
+When you visit a website, your request doesn’t always go directly to the server—sometimes, it passes through a proxy or reverse proxy first.
+
+A proxy server acts as a middleman between your device and the internet.
+
+### Forward-Proxy
+![forward-proxy]()
+When you request a webpage, the proxy forwards your request to the target server, retrieves the response, and sends it back to you.
+A proxy hides your IP address, keeping your location and identity private.
+### Reverse Proxy
+![reverse-proxy]()
+A Reverse Proxy intercepts client requests and forwards them to backend servers based on predefined rules.
+A reverse proxy mitigates these risks by acting as a controlled entry point that regulates incoming traffic and hides server IPs.
+
+It can also act as a load balancer, distributing traffic across multiple servers.
+
