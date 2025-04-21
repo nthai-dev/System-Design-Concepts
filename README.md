@@ -18,54 +18,91 @@ System Design was HARD until I Learned these 30 Concepts
 | [10. Databases]()                | [20. Denormalization]()       | [30. Idempotency]()     |
 
 
-## Client-Server Architecture
-Almost every web application that you use is built on this simple yet powerful concept called client-server architecture.
+## 🖥️ Client-Server Architecture
+Client-Server Architecture is a foundational concept in system design where two main entities interact:
+### 🧩 Components:
+#### 1. Client:
+- Initiates requests
+- Examples: Chrome browser, Postman, mobile app
+#### 2. Server:
+- Waits for client requests, processes them, and sends back responses
+- Can be one machine or a cluster of machines behind load balancers
 
+### ⚙️ How it works (Basic Flow):
 ![client-server]()
+1. Client sends a request (e.g., fetch user profile)
+2. Server processes the request (e.g., query DB, apply logic)
+3. Server sends a response (e.g., JSON with user details)
+   
+> This sounds simple, but there’s a big question: 
+> How does the client even know where to find the server?
 
-- The client requests to store, retrieve, or modify data.
-- The server receives the request, processes it, performs the necessary operations, and sends back a response.
-This sounds simple, but there’s a big question: 
-How does the client even know where to find the server?
+## 🌐 IP Address
+On the internet, computers identify each other using IP addresses, which work a lot like phone numbers—unique identifiers that let them connect and communicate.
 
-TL;DR:
-> The client finds the server via DNS, config, or service discovery, and connects using an IP/port.
-
-
-## IP Address
-On the internet, computers identify each other using IP addresses, which work like phone numbers.
+### 🧾 What is an IP Address?
+An IP address is a numerical label (like 192.168.1.1 or 2001:0db8:85a3::8a2e:0370:7334) assigned to each device connected to a network.
+It can be:
+- IPv4: e.g., 172.217.3.110 (most common, but limited)
+- IPv6: e.g., 2606:4700:4700::1111 (newer, much larger address space)
 
 ![ip-address]()
 
-Every publicly deployed server has a unique IP address. When a client wants to interact with a service, it must send requests to the correct IP address.
+> 📌 Every publicly deployed server has a unique IP address. When a client wants to talk to a server—whether it’s an API, a website, or a game server—it must send requests to the correct IP address.
 
-But there’s a problem:
-- When we visit a website, we don’t type its IP address—we just enter the website name.
-- We can’t expect users (or even systems) to memorize a string of random numbers for every service they connect to.
-- If we migrate our service to another server, its IP address may change, breaking all direct connections.
-
+### ⚠️ The Problem:
+But here’s the catch:
+- We can’t expect users (or systems) to memorize a random string of numbers for every service.
+- If we move our service to a different server (say, during scaling or disaster recovery), the IP address might change.
+> 🧪 The Solution: DNS
 ## 3. DNS
-Instead of relying on hard-to-remember IP addresses, we use something much more human-friendly: domain names.
+Instead of using hard-to-remember IP addresses, we use something much more human-friendly: domain names.
+But how does a domain name lead us to the right server?
+That’s where DNS (Domain Name System) comes in.
 
-But we need a way to map a domain name to its corresponding IP address.
-
-This is where DNS (or Domain Name System) comes in. It maps easy-to-remember domain names (like google.com) to their corresponding IP addresses.
+DNS works like the Internet’s phonebook. It maps easy-to-remember domain names (like google.com) to their actual IP addresses, allowing browsers to load the correct websites.
 
 ![dns]()
 
 ## 4. Proxy/ Reverse Proxy
-When you visit a website, your request doesn’t always go directly to the server—sometimes, it passes through a proxy or reverse proxy first.
-
-A proxy server acts as a middleman between your device and the internet.
+When a client (like your browser) wants to connect to a server, it can go directly or it can use a proxy in between.
 
 ### Forward-Proxy
 ![forward-proxy]()
-When you request a webpage, the proxy forwards your request to the target server, retrieves the response, and sends it back to you.
-A proxy hides your IP address, keeping your location and identity private.
+A proxy server acts as an intermediary between a client (like your computer) and the Internet.
+When you use a proxy:
+- Your requests go to the proxy first -> The proxy forwards your request to the destination -> The response comes back through the proxy -> The proxy then sends it to you
+#### Why Use a Reverse Proxy?
+1. Privacy & Anonymity(hides client identities)
+2. Access Control (organizations can block access to specific websites)
+3. Bypass Geographical Restrictions (access content blocked in your country/region)
+4. Improved Security
+5. Bandwidth Savings & Caching
+6. Logging & Monitoring
+  
 ### Reverse Proxy
 ![reverse-proxy]()
-A Reverse Proxy intercepts client requests and forwards them to backend servers based on predefined rules.
-A reverse proxy mitigates these risks by acting as a controlled entry point that regulates incoming traffic and hides server IPs.
+A reverse proxy sits in front of web servers and acts as a gateway between clients and servers:
 
-It can also act as a load balancer, distributing traffic across multiple servers.
+#### Key Characteristics of Reverse Proxies:
+- Server-side technology (set up by service providers)
+- Hides server identities from clients
+- Provides load balancing, SSL termination, caching, and security
+- Common uses: high-traffic websites, CDNs, microservices architectures
 
+#### Why Use a Reverse Proxy?
+- Load Balancing: Distributes traffic across multiple servers
+- SSL Termination: Handles encryption/decryption to reduce server load
+- Caching: Stores static content to improve performance
+- Security: Protects against DDoS attacks and hides server vulnerabilities
+- Compression: Reduces bandwidth by compressing responses
+- Unified Access: Provides a single entry point for multiple backend services  
+
+### Main Differences
+
+|Feature	| Forward Proxy	| Reverse Proxy|
+---|---|---
+Position|	Close to clients|	Close to servers
+Hides|	Client identities|	Server infrastructure
+Typical User|	End users/organizations|	Website administrators
+Primary Uses |	Privacy, access control|	Load balancing, security
