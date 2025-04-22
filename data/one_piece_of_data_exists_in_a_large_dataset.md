@@ -12,8 +12,8 @@ If the data fits in memory, you can use a hash set (e.g. set in Python, HashSet 
 ## 💡 2. Using Redis (Exact Match, Large-Scale, In-Memory)
 Redis can act like a distributed in-memory hash set.
 
-✅ Works well for real-time systems (e.g. deduplication, caching).
-❌ Still uses memory, and storing billions of entries can be expensive.
+- ✅ Works well for real-time systems (e.g. deduplication, caching).
+- ❌ Still uses memory, and storing billions of entries can be expensive.
 
 ## 🚀3. Using a Bloom Filter (Fast, Space-Efficient, Probabilistic)
 A Bloom Filter is a space-efficient structure that can tell if an item is possibly in the set or definitely not.
@@ -32,8 +32,8 @@ Use it when:
 ## 🗃️ 4. Database Lookup (Exact Match, Slower)
 If data is stored in a SQL or NoSQL database, you can check with a query:
 
-✅ Reliable and persistent
-❌ Slower, especially for high-throughput systems
+- ✅ Reliable and persistent
+- ❌ Slower, especially for high-throughput systems
 
 
 ## 📝Summary Table
